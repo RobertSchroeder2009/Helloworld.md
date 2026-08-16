@@ -21,8 +21,7 @@ def yes_no():
 
     while Sty not in yynn:
        print("Please type only a yes or no")
-
-    yesno = False
+       Sty = input("")
 
     if 'Yes' in Sty:
         yesno = True
@@ -30,12 +29,14 @@ def yes_no():
     elif 'yes' in Sty:
         yesno = True
 
-
     elif 'No' in Sty:
         yesno = False
 
     elif 'no' in Sty:
         yesno = False
+
+    else:
+        print('error')
 
  #returns the players response
     return yesno

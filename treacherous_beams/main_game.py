@@ -23,6 +23,9 @@ RESET = "\033[0m"
 
 time.sleep(2)
 
+
+#========================================================================================
+
 #A base class that is used for default base other class off of
 class Fighter:
     def __init__(self,name, starting_health, weapon, shield):
@@ -45,7 +48,6 @@ class Fighter:
         attack_power = random.randint(self.weapon // 2, self.weapon*2)
         print('Attack power:', attack_power)
         return attack_power
-
 
     def skill_attack(self):
         attack_power = random.randint(self.weapon // 2, self.weapon*2)
@@ -98,6 +100,12 @@ class Fighter:
         else:
             print(f'{GREEN}No damage{RESET}')
 
+    def restore_health(self,starting_health):
+        self.__health = starting_health
+
+#========================================================================================
+
+
 #A class using mainly 'Fighter' values but include a seperate "magic" value that is added onto the damage
 class Wizard(Fighter):
     def __init__(self,name, starting_health, weapon, shield,magic):
@@ -112,7 +120,11 @@ class Wizard(Fighter):
     def restore_health(self,starting_health):
         self.__health = starting_health
 
-#A class that builds off the fighter class but it also allows for a new value called "Range_attack", that is randomised to be either between the original value divided by three and tripled, with the random value then added to the damage.
+#========================================================================================
+
+
+#A class that builds off the fighter class but it also allows for a new value called "Range_attack", 
+#that is randomised to be either between the original value divided by three and tripled, with the random value then added to the damage.
 class Archer(Fighter):
     def __init__(self,name, starting_health, weapon, shield, Range_attack):
       super().__init__(name, starting_health, weapon, shield,)
@@ -128,6 +140,9 @@ class Archer(Fighter):
     def restore_health(self,starting_health):
         self.__health = starting_health
    
+#========================================================================================
+
+
 #Turns the value from the other file into a enemy to fight
 def approach():
     target = generate()
@@ -165,7 +180,7 @@ def battle():
         print('')
 
 
-#--------------------------------------
+#========================================================================================
 
 #The many different type values that are interchangeable 
 player = Fighter('Player',110,50,25)
@@ -186,9 +201,11 @@ battle()
 
 #checks if the player alive or dead
 if enemy.is_dead():
-    print(f'{GREEN}Player survived{RESET}')
+    print(f'{GREEN}player survived{RESET}')
 else:
-    print(f'{RED}GAME OVER{RESET}')
+    print(f'{RED}=============================={RESET}')
+    print(f'{RED}          GAME OVER{RESET}')
+    print(f'{RED}=============================={RESET}')
     sys.exit(0)
 #---------------------------------------
 
@@ -199,11 +216,14 @@ time.sleep(1)
 yesno = yes_no()
 
 
-if yes_no == True:
+#if yesno == True:
+while yesno == True:
     enemy = approach()
+
+
     
     #Heals the enemy
-    enemy.restore_health()
+   #enemy.restore_health(starting_health = 300)
     
     player.report()
     enemy.report()
@@ -212,6 +232,20 @@ if yes_no == True:
 
     #starts the battle again with the player at the same health they won the battle at
     battle()
+
+    if enemy.is_dead():
+        print(f'{GREEN}Player survived{RESET}')
+    else:
+        print(f'{RED}=============================={RESET}')
+        print(f'{RED}          GAME OVER{RESET}')
+        print(f'{RED}=============================={RESET}')
+        sys.exit(0)
+
+    yesno = yes_no()
+
 else:
     #ends the game
+    print(f'{GREEN}=============================={RESET}')
+    print(f'{GREEN}        GAME FINISHED{RESET}         ')
+    print(f'{GREEN}=============================={RESET}')
     sys.exit(0)
