@@ -1,6 +1,7 @@
 import random, time 
 
 def shop_randomising():
+    print('')
 
  #prints the first random value for the store
     slot1 = random.randint(1, 6)
@@ -35,6 +36,10 @@ def shop_randomising():
         print('Their first item was a freshly sharpened pristine sword that must have stolen much blood, sweat and tears from the blacksmiths that forged such a weapon of its caliber')
         print('')
 
+    #=========================================================================================
+    print('')
+
+    
 
  #prints the second random value for the store
     slot2 = random.randint(1, 6)
@@ -67,47 +72,64 @@ def shop_randomising():
         storeB = 6
         print('They had what looked to be fresh apples, untouched by the harsh environments that surrounds them')
         print('')
-       
+
+    #=========================================================================================
+    print('')
+
+    
 
  #prints the third random value for the store,
     slot3 = random.randint(1, 6)
-    if 2 >= slot3:
-        storeC = 1
-        print('They had nothing that even held a drop of water')
-        
-    elif 4 == slot3:
+
+    if 4 == slot3:
         storeC = 4
         print('In a corner of the room there was a metal can, rusted and dented, but still contained a hadful of water, clean and drinkable')
-        print('')
+        
 
     elif 5 == slot3:
         storeC = 5
         print('In a corner of the room there was a metal can, rusted and dented, but still contained a hadful of water, clean and drinkable')
-        print('')    
+         
         
     elif 6 == slot3:
         storeC = 6
         print('On display was a metal cyclical can... perfectly formed... and reflective from all angles, filled with a liquid that not only is untouched by air, \nbut also is energizing through some sort of magic in the water. ')
-        print('')
 
-#prints the fourth random value for the store
-    slot4 = random.randint(1, 10)
-    if 3 >= slot4:
-        storeD = 1
-        print('The store was nothing special')
-        print('')
+    else:
+        storeC = 1
+        print('They had nothing that even held a drop of water')
         
-    elif 8 == slot4:
-        storeD = 3
+    #=========================================================================================
+    print('')
+
+
+
+ #prints the fourth random value for the store
+    slot4 = random.randint(1, 10)
+        
+        
+    if 8 == slot4:
+        storeD = 2
+        print('[INSERT RARE WEAPON]')
+        
         
     elif 9 == slot4:
-        storeD = 4
-        print('')
+        storeD = 3
+        print('[INSERT RARE FOOD]')
+        
         
     elif 10 == slot4:
-        storeD = 5
+        storeD = 4
+        print('[INSERT RARE WATER]')
+
     else:
-        print('error')
+        storeD = 1
+        print('The store had nothing unique')
+        
+    #=========================================================================================
+    print('')
+
+    
 
     return storeA, storeB, storeC, storeD
 

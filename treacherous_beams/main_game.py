@@ -4,7 +4,7 @@ from story_code import story
 from monster_generation import generate
 from yes_no_def import yes_no
 import sys
-
+from village_zone import random_vill
 
 #-----------------------------------
 #allowing text to be coloured
@@ -211,7 +211,7 @@ else:
 
 #Checks and prompts the player whether they want to fight another enemy or just finish the game
 print('')
-print('Would you like to play again?')
+print('Would you like to fight another foe?')
 time.sleep(1)
 yesno = yes_no()
 
@@ -241,11 +241,32 @@ while yesno == True:
         print(f'{RED}=============================={RESET}')
         sys.exit(0)
 
+    print('Would you like to fight another foe?')
     yesno = yes_no()
 
 else:
-    #ends the game
-    print(f'{GREEN}=============================={RESET}')
-    print(f'{GREEN}        GAME FINISHED{RESET}         ')
-    print(f'{GREEN}=============================={RESET}')
+    #=================================================
+    #LOADING SCREEN \/
+    time.sleep(1)
+    print(f'{GREEN}==============================')
+    print('TRAVELING TO THE NEARBY VILLIAGE')
+    print(f'=============================={RESET}')
+    time.sleep(2)
+    print('.')
+    time.sleep(2)
+    print('..')
+    time.sleep(2)
+    print('...')
+    time.sleep(2)
+    print('')
+    time.sleep(2)
+    print('')
+    print('')
+    print('')
+
+    #=================================================  
+    #STATES THE PLACES IN THE VILLIAGE 
+    store, medical, exotics = random_vill()
+
+
     sys.exit(0)
