@@ -83,13 +83,11 @@ def shop_randomising():
 
     if 4 == slot3:
         storeC = 4
-        print('In a corner of the room there was a metal can, rusted and dented, but still contained a hadful of water, clean and drinkable')
-        
+        print('In a corner of the room there was a metal can, rusted and dented, but still contained a hadful of water, clean and drinkable')   
 
     elif 5 == slot3:
         storeC = 5
-        print('In a corner of the room there was a metal can, rusted and dented, but still contained a hadful of water, clean and drinkable')
-         
+        print('In a corner of the room there was a metal can, rusted and dented, but still contained a hadful of water, clean and drinkable')   
         
     elif 6 == slot3:
         storeC = 6

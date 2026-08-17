@@ -35,8 +35,5 @@ def yes_no():
     elif 'no' in Sty:
         yesno = False
 
-    else:
-        print('error')
-
  #returns the players response
     return yesno

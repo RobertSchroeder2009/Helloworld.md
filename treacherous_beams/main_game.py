@@ -1,10 +1,12 @@
 #Allows for the use of random clauses
 import random, time 
+import sys
 from story_code import story
 from monster_generation import generate
 from yes_no_def import yes_no
-import sys
 from village_zone import random_vill
+from village_visit import visit
+
 
 #-----------------------------------
 #allowing text to be coloured
@@ -259,14 +261,74 @@ else:
     print('...')
     time.sleep(2)
     print('')
-    time.sleep(2)
     print('')
     print('')
     print('')
+    
 
     #=================================================  
-    #STATES THE PLACES IN THE VILLIAGE 
+    #Code for interacting with village\/
     store, medical, exotics = random_vill()
+    while yesno == False:
+        player.report()
+        print('')
+        travel = visit()
 
+
+        if travel == 1:
+            if store == 1:
+                print('Please select a valid option from above')
+            elif store == 2:
+                print('You enter a blacksmiths shop')
+            elif store == 3:
+                print('You enter a merchants shop')
+
+
+        if travel == 2:
+
+            if medical == 1:
+                print('Please select a valid option from above')
+
+            elif medical == 2:
+                print('You enter the camp')
+                recover = random.randint(10, 30)
+                #FIX HEALTH VALUE "None" FROM VALUE \/ <---------------------------------------------------
+                print(f'[new health = {player.restore_health(starting_health =+ recover)}]')
+
+            elif medical == 3:
+                print('You enter the hospital')
+                #DOES WORK, BUT FIX HEALTH VALUE BEING CALLED "None" \/ <---------------------------------------------------
+                print(f'[new health = {player.restore_health(starting_health = 110)}]')
+
+
+        if travel == 3:
+            if exotics == 1:
+                print('Please select a valid option from above')
+
+            elif exotics == 2:
+                print('You draw water from the well')
+                #FIX WHEN WATER VALUE IS ADDED \/        <--------------------------------------------------
+                print(f'[Current water = _____________')
+
+            elif exotics == 3:
+                print('You take part in the training arena')
+                #FIX WHEN BASE DAMAGE VALUE IS ADDED \/        <--------------------------------------------------
+                print(f'your base damage is now _______')
+
+            elif exotics == 4:
+                print('You visit the exotics trader')
+                print('TO BE DESIGNED/CODED LATER, PLEASE GIVE ME A BREAK')
+
+            elif exotics == 5:
+                print('You enter... IT...')
+                print('[THIS IS UNAVAILABLE AND WILL COME IN A FUTURE UPDATE]')
+
+        time.sleep(2)
+        print('')
+
+
+        print('Do you want to return to battle?')
+        yesno = yes_no()
+    
 
     sys.exit(0)
